@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Cheesecake Factory</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link href="ratchet.css" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
+
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+
+    <style>
+.list {
+  font-family:"Abel";
+  margin:0;
+  padding:20px 0 0;
+}
+.list > li {
+  display:block;
+  background-color: #eee;
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.avatar {
+  max-width: 150px;
+}
+img {
+  max-width: 100%;
+}
+h3 {
+  font-size: 16px;
+  margin:0 0 0.3rem;
+  font-weight: normal;
+  font-weight:bold;
+}
+p {
+  margin:0;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #000;
+  height:39px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+}
+</style>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+  <button class="btn btn-link btn-nav pull-left">
+    <p style="font-size: 25px"><a href="example.html"><b><</b></a></p>
+  </button>
+   <button class="btn btn-link btn-nav pull-right">
+  <p style="font-size: 25px"><a onclick="window.location.href=this"><b>⟳</b></a></p>
+  </button>
+  <h1 class="title">Cheesecake Factory</h1>
+</header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div id="users">
+  <input class="search" style="width:50%" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+
+  <ul class="filter" style="margin-top:10px; margin-left:-30px">
+    Filter by:    
+    <li class="btn" id="filter-none">All</li>
+    <li class="btn" id="filter-veg">Vegetarian</li>
+    <li class="btn" id="filter-ovoveg">Lacto-ovo-vegetarian</li>
+    <li class="btn" id="filter-vegan">Vegan</li>
+    <li class="btn" id="filter-lact">Lactose Intolerant</li>
+    <li class="btn" id="filter-pesc">Pescetarian</li>
+    <li class="btn" id="filter-gluten">Gluten-free</li>
+    <li class="btn" id="filter-nut">Nut Allergy</li>
+    <li class="btn" id="filter-soy">Soy Allergy</li>
+  </ul>
+
+  <ul class="list">
+    <li>
+      <h3 class="name">Tomato Basil Pasta</h3>
+      <p class="desc">Grilled Chicken, Fresh Mozzarella, a Touch of Garlic and Penne Pasta. Light and Fresh.</p>
+      <p class="bad" style="color: transparent">Dairy, Gluten, Soy, Eggs</p>
+    </li>
+    <li>
+      <h3 class="name">Cobb Salad</h3>
+      <p class="desc">Chicken Breast, Avocado, Blue Cheese, Bacon, Tomato, Egg and Mixed Greens Tossed in Vinaigrette.</p>
+      <p class="bad" style="color: transparent">Meat, Dairy, Eggs, Gluten, Soy</p>
+    </li>
+    <li>
+      <h3 class="name">Margherita Pizza</h3>
+      <p class="desc">Fresh Mozzarella, Basil and Tomato Sauce.</p>
+      <p class="bad" style="color: transparent">Dairy, Gluten, Eggs</p>
+    </li>
+    <li>
+      <h3 class="name">Factory Burger</h3>
+      <p class="desc">Charbroiled with Cheddar Cheese, Tomato and Grilled Onions on Sourdough French or Wheat Loaf.</p>
+      <p class="bad" style="color: transparent">Dairy, Gluten, Meat</p>
+    </li>
+    <li>
+      <h3 class="name">Greek Salad</h3>
+      <p class="desc">Feta Cheese, Tomato, Cucumber, Kalamata Olives, Red Onion and Vinaigrette.</p>
+      <p class="bad" style="color: transparent">Dairy</p>
+    </li>
+        <li>
+      <h3 class="name">Factory Nachos</h3>
+      <p class="desc">Crisp Tortilla Chips Covered with Melted Cheese, Guacamole, Red Chile Sauce, Sour Cream, Jalapeños, Green Onions and Salsa.</p>
+      <p class="bad" style="color: transparent">Dairy</p>
+    </li>
+        <li>
+      <h3 class="name">French Fries</h3>
+      <p class="desc">Crispy, golden French Fries.</p>
+      <p class="bad" style="color: transparent">hi</p>
+    </li>
+        <li>
+      <h3 class="name">Spicy Cashew Chicken</h3>
+      <p class="desc">A Very Spicy Mandarin-Style Dish with Green Onions and Roasted Cashews. Served over Rice.</p>
+      <p class="bad" style="color: transparent">Gluten, Soy, Nuts, Meat</p>
+    </li>
+        <li>
+      <h3 class="name">Filet Mignon</h3>
+      <p class="desc">The Most Tender Steak. Served with Mashed Potatoes and Vegetable.</p>
+      <p class="bad" style="color: transparent">Gluten, Soy, Dairy, Meat</p>
+    </li>
+        <li>
+      <h3 class="name">Fresh Grilled Salmon</h3>
+      <p class="desc">Frech Grilled Salmon Served with Mashed Potatoes and Broccoli.</p>
+      <p class="bad" style="color: transparent">Eggs, Fish</p>
+    </li>
+
+  </ul>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="http://listjs.com/no-cdn/list.js"></script>
+
+<script>
+  var options = {
+  valueNames: [ 'name', 'bad']
+};
+
+var userList = new List('users', options);
+
+$('#filter-veg').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Eggs") || item.values().bad.includes("Fish")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-ovoveg').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Fish")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-lact').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Dairy")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-vegan').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Dairy") || item.values().bad.includes("Fish") || item.values().bad.includes("Eggs")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-pesc').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-gluten').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Gluten")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-nut').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Nuts")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-soy').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Soy")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-none').click(function() {
+  userList.filter();
+  return false;
+});
+</script>
+    </div>
+
+  </body>
+</html>

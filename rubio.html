@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rubio's</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link href="ratchet.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
+
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+
+    <style>
+.list {
+  font-family:"Abel";
+  margin:0;
+  padding:20px 0 0;
+}
+.list > li {
+  display:block;
+  background-color: #eee;
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.avatar {
+  max-width: 150px;
+}
+img {
+  max-width: 100%;
+}
+h3 {
+  font-size: 16px;
+  margin:0 0 0.3rem;
+  font-weight: normal;
+  font-weight:bold;
+}
+p {
+  margin:0;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #000;
+  height:39px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+}
+</style>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+   <header class="bar bar-nav">
+  <button class="btn btn-link btn-nav pull-left">
+    <p style="font-size: 25px"><a href="example.html"><b><</b></a></p>
+  </button>
+   <button class="btn btn-link btn-nav pull-right">
+  <p style="font-size: 25px"><a onclick="window.location.href=this"><b>⟳</b></a></p>
+  </button>
+  <h1 class="title">Rubio's</h1>
+</header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div id="users">
+  <input class="search" style="width:50%" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+
+  <ul class="filter" style="margin-top:10px; margin-left:-30px">
+    Filter by:    
+    <li class="btn" id="filter-none">All</li>
+    <li class="btn" id="filter-veg">Vegetarian</li>
+    <li class="btn" id="filter-ovoveg">Lacto-ovo-vegetarian</li>
+    <li class="btn" id="filter-vegan">Vegan</li>
+    <li class="btn" id="filter-lact">Lactose Intolerant</li>
+    <li class="btn" id="filter-pesc">Pescetarian</li>
+    <li class="btn" id="filter-gluten">Gluten-free</li>
+    <li class="btn" id="filter-nut">Nut Allergy</li>
+    <li class="btn" id="filter-soy">Soy Allergy</li>
+  </ul>
+
+  <ul class="list">
+    <li>
+      <h3 class="name">Mango Avocado Salad</h3>
+      <p class="desc">Your choice of protein on a bed of fresh mixed greens with sweet, citrusy mango salsa, brown rice & quinoa, fresh sliced Hass avocados, crisp tortilla strips, and drizzled with a lemon agave balsamic vinaigrette.</p>
+      <p class="bad" style="color: transparent">woo</p>
+    </li>
+    <li>
+      <h3 class="name">Balsamic & Roasted Veggie Salad</h3>
+      <p class="desc">Enjoy our delicious balsamic and roasted vegetable salad with fire-roasted corn, roasted sweet peppers, onions, zucchini, squash, and Hass avocado slices on fresh mixed greens, drizzled with lemon agave balsamic vinaigrette. Served with your choice of grilled seafood, grilled all natural chicken or grilled veggies.</p>
+      <p class="bad" style="color: transparent">woo</p>
+    </li>
+    <li>
+      <h3 class="name">Cilantro Lime Quinoa Bowl</h3>
+      <p class="desc">Choice of protein atop our brown rice & quinoa and romaine lettuce, topped with fire-roasted veggies, fresh sliced Hass avocados and black beans topped with Cilantro Lime Mojo Sauce and toasted almonds.</p>
+      <p class="bad" style="color: transparent">Nuts</p>
+    </li>
+    <li>
+      <h3 class="name">The Original Fish Taco</h3>
+      <p class="desc">It's made with sustainable wild Alaska Pollock, hand-dipped in our signature seasoned beer batter and cooked to crispy perfection. Topped with Rubio's white sauce, mild salsa and fresh cabbage. Served on a warm stone-ground corn tortilla and garnished with a slice of lime.</p>
+      <p class="bad" style="color: transparent">Eggs, Dairy, Gluten, Fish</p>
+    </li>
+    <li>
+      <h3 class="name">Wild Argentinian Red Shrimp Taco</h3>
+      <p class="desc">Wild-caught Argentinian Red Shrimp drizzled with smoked paprika & tomato butter topped with Hass avocado slices, salsa fresca, cabbage and chipotle white sauce on a warm stone-ground corn tortilla. Served with a side of "no-fried" pinto beans™ and chips.</p>
+      <p class="bad" style="color: transparent">Fish, Dairy, Eggs</p>
+    </li>
+    <li>
+      <h3 class="name">Baja Grill Burrito</h3>
+      <p class="desc">Grilled all natural chicken raised without antibiotics, with our handmade guacamole, salsa fresca and melted cheese. Wrapped in a toasted flour tortilla and served with a side of tortilla chips.</p>
+      <p class="bad" style="color: transparent">Dairy, Gluten, Soy, Meat</p>
+    </li>
+    <li>
+      <h3 class="name">Classic Grilled Shrimp Burrito</h3>
+      <p class="desc">Ingredients include grilled shrimp topped with melted jack and cheddar cheese, Mexican rice, pinto beans, salsa fresca, and creamy chipotle sauce. Wrapped in a toasted flour tortilla served with a side of tortilla chips.</p>
+      <p class="bad" style="color: transparent">Dairy, Gluten, Eggs, Soy, Fish</p>
+    </li>
+    <li>
+      <h3 class="name">Grilled Gourmet Taco</h3>
+      <p class="desc">Marinated grilled all natural steak served on a warm stone-ground corn tortilla with toasted cheese. Topped with crisp all natural bacon* pieces, buttery Hass Avocado slices, our roasted chipotle salsa, creamy chipotle sauce and cilantro/onion mix.</p>
+      <p class="bad" style="color: transparent">Meat</p>
+    </li>
+    <li>
+      <h3 class="name">Veggie Quesadilla</h3>
+      <p class="desc">Toasted flour tortilla with a melted blend of cheeses. Served with our handmade guacamole, salsa fresca, sour cream and a side of tortilla chips. Also available with your choice of pan-seared shrimp and grilled veggies.</p>
+      <p class="bad" style="color: transparent">Dairy, Gluten, Soy</p>
+    </li>
+    <li>
+      <h3 class="name">Chicken Tortilla Soup</h3>
+      <p class="desc">Grilled all natural chicken in savory chicken broth with our salsa fresca and citrus rice. Topped with Hass Avocado slices, tortilla strips and cheese. Served with two warm, flour tortillas or any taco of your choice.</p>
+      <p class="bad" style="color: transparent">Meat, Dairy</p>
+    </li>
+
+
+  </ul>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="http://listjs.com/no-cdn/list.js"></script>
+
+<script>
+  var options = {
+  valueNames: [ 'name', 'desc', 'bad']
+};
+
+var userList = new List('users', options);
+
+$('#filter-veg').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Eggs") || item.values().bad.includes("Fish")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-ovoveg').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Fish")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-lact').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Dairy")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-vegan').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Dairy") || item.values().bad.includes("Fish") || item.values().bad.includes("Eggs")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-pesc').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-gluten').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Gluten")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-nut').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Nuts")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-soy').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Soy")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-none').click(function() {
+  userList.filter();
+  return false;
+});
+</script>
+    </div>
+
+  </body>
+</html>

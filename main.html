@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RomaineCalm</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link href="ratchet.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="romainecalm.jpg" />
+<style>
+.list {
+  font-family:sans-serif;
+  margin:0;
+  padding:20px 0 0;
+}
+.list > li {
+  display:block;
+  background-color: #eee;
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.avatar {
+  max-width: 150px;
+}
+img {
+  max-width: 100%;
+}
+h3 {
+  font-size: 16px;
+  margin:0 0 0.3rem;
+  font-weight: normal;
+  font-weight:bold;
+}
+p {
+  margin:0;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #000;
+  height:39px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+}
+</style>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+  </head>
+  <body>
+
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+<button class="btn btn-link btn-nav pull-right">
+  <p style="font-size: 25px"><a onclick="window.location.href=this"><b>⟳</b></a></p>
+  </button>
+  <h1 class="title">RomaineCalm</h1>
+</header>
+
+
+  <div id="users" class="content">
+  <input class="search" style="width:50%" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+
+  <ul class="filter" style="margin-top:10px; margin-left:-30px">
+    <p>Filter by:  </p>
+    <li class="btn" id="filter-none">All</li>
+    <li class="btn" id="filter-fast">Fast Food</li>
+    <li class="btn" id="filter-italian">Italian</li>
+    <li class="btn" id="filter-mexican">Mexican</li>
+    <li class="btn" id="filter-chinese">Chinese</li>
+    <li class="btn" id="filter-american">American</li>
+  </ul>
+
+  <ul class="list">
+    <li>
+      <h3 class="name"><a href="mcd.html">McDonald's</a></h3>
+      <p class="cuisine">Fast Food</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="tacobell.html">Taco Bell</a></h3>
+      <p class="cuisine">Fast Food</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="burger.html">Burger King</a></h3>
+      <p class="cuisine">Fast Food</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="wendy.html">Wendy's</a></h3>
+      <p class="cuisine">Fast Food</p>
+    </li>
+     <li>
+      <h3 class="name"><a href="chick.html">Chick-Fil-A</a></h3>
+      <p class="cuisine">Fast Food</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="olivegarden.html">Olive Garden</a></h3>
+      <p class="cuisine">Italian</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="cpk.html">California Pizza Kitchen</a></h3>
+      <p class="cuisine">Italian</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="bajafresh.html">Baja Fresh</a></h3>
+      <p class="cuisine">Mexican</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="chilis.html">Chili's</a></h3>
+      <p class="cuisine">Mexican</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="rubio.html">Rubio's</a></h3>
+      <p class="cuisine">Mexican</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="pyeongchang.html">P.F. Chang's</a></h3>
+      <p class="cuisine">Chinese</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="cheesecake.html">Cheesecake Factory</a></h3>
+      <p class="cuisine">American</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="panera.html">Panera</a></h3>
+      <p class="cuisine">American</p>
+    </li>
+    <li>
+      <h3 class="name"><a href="ihop.html">IHOP</a></h3>
+      <p class="cuisine">American</p>
+    </li>
+  </ul>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="http://listjs.com/no-cdn/list.js"></script>
+
+<script>
+  var options = {
+  valueNames: [ 'name', 'cuisine']
+};
+
+var userList = new List('users', options);
+
+$('#filter-fast').click(function() {
+  userList.filter(function(item) {
+    if (item.values().cuisine == "Fast Food") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return false;
+});
+$('#filter-italian').click(function() {
+  userList.filter(function(item) {
+    if (item.values().cuisine == "Italian") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return false;
+});
+$('#filter-mexican').click(function() {
+  userList.filter(function(item) {
+    if (item.values().cuisine == "Mexican") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return false;
+});
+$('#filter-chinese').click(function() {
+  userList.filter(function(item) {
+    if (item.values().cuisine == "Chinese") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return false;
+});
+$('#filter-american').click(function() {
+  userList.filter(function(item) {
+    if (item.values().cuisine == "American") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return false;
+});
+$('#filter-none').click(function() {
+  userList.filter();
+  return false;
+});
+</script>
+
+  </body>
+</html>

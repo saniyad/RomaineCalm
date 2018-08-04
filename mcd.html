@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>McDonald's</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link href="ratchet.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
+
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+
+    <style>
+.list {
+  font-family:"Abel";
+  margin:0;
+  padding:20px 0 0;
+}
+.list > li {
+  display:block;
+  background-color: #eee;
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.avatar {
+  max-width: 150px;
+}
+img {
+  max-width: 100%;
+}
+h3 {
+  font-size: 16px;
+  margin:0 0 0.3rem;
+  font-weight: normal;
+  font-weight:bold;
+}
+p {
+  margin:0;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #000;
+  height:39px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+}
+</style>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+  <header class="bar bar-nav">
+  <button class="btn btn-link btn-nav pull-left">
+    <p style="font-size: 25px"><a href="example.html"><b><</b></a></p>
+  </button>
+   <button class="btn btn-link btn-nav pull-right">
+  <p style="font-size: 25px"><a onclick="window.location.href=this"><b>⟳</b></a></p>
+  </button>
+  <h1 class="title">McDonald's</h1>
+</header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div id="users">
+  <input class="search" style="width:50%" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+
+  <ul class="filter" style="margin-top:10px; margin-left:-30px">
+    Filter by:    
+    <li class="btn" id="filter-none">All</li>
+    <li class="btn" id="filter-veg">Vegetarian</li>
+    <li class="btn" id="filter-ovoveg">Lacto-ovo-vegetarian</li>
+    <li class="btn" id="filter-vegan">Vegan</li>
+    <li class="btn" id="filter-lact">Lactose Intolerant</li>
+    <li class="btn" id="filter-pesc">Pescetarian</li>
+    <li class="btn" id="filter-gluten">Gluten-free</li>
+    <li class="btn" id="filter-nut">Nut Allergy</li>
+    <li class="btn" id="filter-soy">Soy Allergy</li>
+  </ul>
+
+  <ul class="list">
+    <li>
+      <h3 class="name">Big Mac</h3>
+      <p class="desc">Mouthwatering perfection starts with two 100% pure beef patties and Big Mac® sauce sandwiched between a sesame seed bun. American cheese, crisp lettuce, onions and pickles top it off.</p>
+      <p class="bad" style="color: transparent">Meat, Dairy, Gluten, Eggs, Soy</p>
+    </li>
+    <li>
+      <h3 class="name">Chicken McNuggets</h3>
+      <p class="desc">Our tender, juicy Chicken McNuggets are made with 100% white meat chicken and no artificial colors, flavors and now no artificial preservatives.</p>
+      <p class="bad" style="color: transparent">Gluten, Meat</p>
+    </li>
+    <li>
+      <h3 class="name">Hotcakes</h3>
+      <p class="desc">Three golden brown, melt-in-your-mouth hotcakes with a side of real butter and the sweet flavor of maple.</p>
+      <p class="bad" style="color: transparent">Gluten, Eggs, Dairy, Soy</p>
+    </li>
+    <li>
+      <h3 class="name">Filet-O-Fish</h3>
+      <p class="desc">Our fish filet is made with Alaskan Pollock sourced from sustainable fisheries, topped with melty American cheese and creamy tartar sauce, and served on a soft, steamed bun.</p>
+      <p class="bad" style="color: transparent">Gluten, Fish, Dairy, Eggs, Soy</p>
+    </li>
+    <li>
+      <h3 class="name">Egg McMuffin</h3>
+      <p class="desc">We place a freshly-cracked Grade A egg on a toasted English Muffin topped with real butter and add lean Canadian bacon and melty American cheese. And all that for 300 calories.</p>
+      <p class="bad" style="color: transparent">Eggs, Gluten, Meat, Soy, Dairy</p>
+    </li>
+    <li>
+      <h3 class="name">Fruit 'N Yogurt Parfait</h3>
+      <p class="desc">Creamy Fruit ‘N Yogurt Parfait with low-fat vanilla yogurt, layers of plump blueberries and sweet strawberries, and a crunchy granola topping.</p>
+      <p class="bad" style="color: transparent">Soy, Gluten, Dairy</p>
+    </li>
+    <li>
+      <h3 class="name">Side Salad</h3>
+      <p class="desc">Freshly prepared side salad with crisp chopped romaine, baby spinach, baby kale, red leaf lettuce, ribbon cut carrots, tasty grape tomatoes and served with your choice of Newman's Own® Dressing.</p>
+      <p class="bad" style="color: transparent">woo</p>
+    </li>
+    <li>
+      <h3 class="name">McDouble</h3>
+      <p class="desc">McDouble® burger features two 100% pure beef patties with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with tangy pickles, chopped onions, ketchup, mustard and a slice of melty American cheese.</p>
+      <p class="bad" style="color: transparent">Meat, Dairy, Gluten, Soy</p>
+    </li>
+    <li>
+      <h3 class="name">Classic Chicken Sandwich</h3>
+      <p class="desc">McDonald’s classic chicken sandwich is made with all white meat chicken filet, topped with deliciously sweet and tangy Signature Sauce and pickles. Served on a soft, toasted regular bun.</p>
+      <p class="bad" style="color: transparent">Meat, Dairy, Gluten, Eggs</p>
+    </li>
+    <li>
+      <h3 class="name">World Famous Fries</h3>
+      <p class="desc">Our French fries are born from premium potatoes such as the Russet Burbank and the Shepody. With zero grams of trans fat per labeled serving, these epic fries are crispy and golden on the outside and fluffy on the inside.</p>
+      <p class="bad" style="color: transparent">Meat, Gluten, Dairy</p>
+    </li>
+
+
+
+  </ul>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="http://listjs.com/no-cdn/list.js"></script>
+
+<script>
+  var options = {
+  valueNames: [ 'name', 'desc', 'bad']
+};
+
+var userList = new List('users', options);
+
+$('#filter-veg').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Eggs") || item.values().bad.includes("Fish")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-ovoveg').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Fish")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-lact').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Dairy")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-vegan').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat") || item.values().bad.includes("Dairy") || item.values().bad.includes("Fish") || item.values().bad.includes("Eggs")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-pesc').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Meat")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-gluten').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Gluten")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-nut').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Nuts")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-soy').click(function() {
+  userList.filter(function(item) {
+    if (item.values().bad.includes("Soy")) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return false;
+});
+
+$('#filter-none').click(function() {
+  userList.filter();
+  return false;
+});
+</script>
+    </div>
+
+  </body>
+</html>
